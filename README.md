@@ -1,31 +1,29 @@
-# Lunar Lander – CS-UY 3113
+# Rise of the AI – CS-UY 3113
 
-**Author:** Johann Varghese  
-**Course:** CS-UY 3113  
-**Assignment:** Lunar Lander  
-**Date Due:** 03/14/2026
+**Author:** Johann Varghese
+**Course:** CS-UY 3113
+**Assignment:** Rise of the AI
+**Date Due:** 04/04/2026
 
 ---
 
 ## Description
 
-This project is a Lunar Lander game built using Raylib in C++.
+This project is a platformer game built using Raylib in C++.
 
-The player controls an astronaut lander and must safely land on one of two platforms
-while managing fuel and avoiding the rocky terrain below.
+The player controls Krabby, a crab on a beach quest, navigating through
+3 levels of increasing difficulty while avoiding enemies and managing lives.
 
 The game features:
 
-- Gravity-based physics with acceleration and velocity
-- Thrust mechanics using acceleration (not direct velocity)
-- Drift/deceleration when thrust keys are released
-- Fuel system that depletes when thrusting
-- Static safe landing platform (WIN)
-- Moving platform that travels left and right (WIN)
-- Rocky terrain that ends the game on contact (LOSE)
-- Animated engine flame sprite sheet
-- Win and lose end screens
-- Fuel bar UI with color indicator
+- 3 fully scrolling levels with increasing difficulty
+- Menu, Win, and Lose scenes as separate Scene objects
+- 3 types of AI enemies: Wanderer, Follower, and Lerper
+- Lives system shared across all levels
+- Fully animated player character
+- Looping background music and 3 sound effects
+- Fixed timestep physics with gravity and collision detection
+- Camera that follows the player horizontally
 
 ---
 
@@ -33,22 +31,37 @@ The game features:
 
 | Key | Action |
 |-----|--------|
-| Up / W | Thrust upward |
-| Left / A | Thrust left |
-| Right / D | Thrust right |
+| A / D | Move left / right |
+| W | Jump |
+| ENTER | Start game / Return to menu |
+| 1 | Debug: jump to Level 1 |
+| 2 | Debug: jump to Level 2 |
+| 3 | Debug: jump to Level 3 |
 | Close Window | Exit Game |
+
+---
+
+## Levels
+
+| Level | Enemies | Difficulty |
+|-------|---------|------------|
+| Level 1 | 2 Wanderers | Easy |
+| Level 2 | 2 Followers + 1 Wanderer | Medium |
+| Level 3 | 1 Wanderer + 2 Followers + 1 Lerper | Hard |
 
 ---
 
 ## Features Implemented
 
+- Scene system with Menu, 3 Levels, Win, and Lose scenes
 - Fixed timestep physics loop
-- Gravity and acceleration-based movement
-- Fuel mechanic with UI bar (green → yellow → red)
-- AABB collision detection with overlap correction
-- Moving platform with left/right bounce pattern
-- Animated flame sprite sheet (4 frames)
-- Win/Lose detection and end screens
+- Gravity and jump-based movement
+- AABB collision detection with map probe system
+- 3 AI types: Wanderer, Follower (FSM), Lerper (linear interpolation)
+- Lives system (3 lives, shared across levels)
+- Camera panning that follows player horizontally
+- Looping background music per level
+- Sound effects for jumping, taking damage, and dying
 - Delta time for all movement
 
 ---
